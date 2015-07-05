@@ -1,0 +1,85 @@
+1、选择器
+基本选择器：
+1.id选择器:$("#id");
+2.class选择器：$(".class");
+3.元素名：$("element");
+4.所有元素：$("*");
+5.多个元素：$("div,p,span");
+层次选择器：
+1.选取后代元素：$("div span");
+2.选取子元素：$("div > span");
+<div class="parent">
+          <span>son<span>grandson</span></span>
+</div>
+虽然第二个span是孙辈也会改变，因为第一个包含了第二个。
+应是这种情况：
+<div class="parent">
+          <p>
+               <span>grandson</span>
+          </p>
+     </div>
+3.选取下一个同辈元素：$("div + span");
+4.选取所有同辈元素：$("div ~ span");
+过滤选择器：
+1.选取第一个元素：$("div:first");
+2.选取最后一个元素：$("div:last");
+3.除去指定元素：$("div:not(div)");
+4.选取索引是偶数的所有元素：$("div:even");从0开始
+5.选取索引是奇数的所有元素：$("div:odd");从0开始
+6.选取第几个元素：$("div:eq(index)");从0开始
+7.选取大于index的所有元素：$("div:gt(index)");从0开始
+8.选取小于index的所有元素：$("div:lt(index)");从0开始
+9.选取所有标题元素h1-7：$(":header");
+10.选取所有正在执行动画的元素：$("div:animated");
+11.选取正在获取焦点的元素：$(":focus");
+12.选取含有指定文本的div：$("div:contains('text')");
+$("li:contains('line')").css({
+          listStyle: 'none'
+     });
+在js里list-style写为listStyle;
+13、选取空元素：$("div:empty");
+14、选取包含指定元素的元素： $("div:has(div)");
+15、选取有子元素的元素(包括文本元素)：$("div:parent");
+16、选取所有隐藏元素：$(":hidden");
+17、选取所有可见元素：$(":visible");
+18、选取拥有此属性的元素：$("div[id]");
+19、选取属性值为value的元素：$("div[title=test]");
+20、选取属性值为value的元素：$("div[title！=test]");
+21、选取属性的值以value开始的元素：$("div[title^=test]");
+22、选取属性的值以value结束的元素：$("div[title$=test]");
+23、选取属性的值含有value的元素：$("div[title*=test]");
+24、选取每个父元素的第一个子元素：$(":first-child");
+25、选取每个父元素的最后一个子元素：$(":last-child");
+26、选取每个父元素的第几个子元素或奇数偶数：$("div:nth-child(2)")
+$("div:nth-child(even)")
+$("div:nth-child(odd)")
+从1开始；
+表单选择器：
+1.选取所有可用元素：$("form :enable");
+2.选取所有不可用元素：$("form :disable");
+3.选取所有被选中的元素：$("input :checked");
+4.选取所有被选中的选项元素：$("select option :selected");
+5.选取所有输入框：$(":input");
+6.选取所有文本框：$(":text");
+7.选取所有密码框：$(":password");
+8.选取所有单选框：$(":radio");
+9.选取所有复选框：$(":checkbox");
+10.选取所有提交框：$(":submit");
+11.选取所有图片框：$(":image");
+12.选取所有重置框：$(":reset");
+13.选取所有按钮框：$(":button");
+14.选取所有文件框：$(":file");
+2、DOM操作
+1、append():添加元素或新节点
+$(".myUl").append($('<li></li>'));
+2、appendTo():添加元素到节点,与append相反
+$('<li></li>').appendTo($(".myUl"));
+3、prepend()：向元素内部前置新添加的内容
+4、prependTo()：与appendTo相似
+5、after()：在元素之后插入元素
+6、insertAfter()：after()的倒写法
+7、before()：在元素之前插入元素
+8、insertBefore()：before()反写
+9、remove()：移除元素
+10、empty()：删除元素的所有后代元素
+11、datach()：
