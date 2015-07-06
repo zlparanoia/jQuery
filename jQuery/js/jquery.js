@@ -39,6 +39,17 @@ $(function() {
 		$(".myUl").append(test);
 	});
 	
-	
+	$(".camera li").click(function() {
+		$(this).clone(true).appendTo(".camera");
+	});
 
+	$("p").replaceWith("<strong>replace</strong>");
+	$(".greet span").wrapInner("<strong></strong>");
+	$(".greet").attr('id', 'greet');
+	var id = $(".greet").attr("id");
+	$(".display").removeClass("display");
+	$(".tog").click(function() {
+		$(".greet").toggleClass('har');
+	});
+	
 });

@@ -82,4 +82,36 @@ $('<li></li>').appendTo($(".myUl"));
 8、insertBefore()：before()反写
 9、remove()：移除元素
 10、empty()：删除元素的所有后代元素
-11、datach()：
+11、detach()：也是删除元素，但和remove不同的是remove()删除后事件也跟着失效，detach()删除后事件依然存在。
+$(".myLi").hover(function() {
+          $(this).html("hover状态");
+     }, function() {
+          $(this).html("正常状态");
+     });
+     $(".myLi").click(function() {
+          var test = $(".myLi").remove();
+          $(".myUl").append(test);
+     });
+12、替换节点
+replaceWith() 与 replaceAll()
+$("p").replaceWith("<strong>replace</strong>");
+$("<strong>replace</strong>").replaceAll("p");
+13、包裹节点
+wrap()：给每个指定的元素用给的元素包起来
+wrapAll()：给所有符合指定元素的用一个元素包起来
+wrapInner()：给指定元素包裹其后代元素
+14、获取属性和设置属性 attr
+$(".greet").attr('id', 'greet');
+ var id = $(".greet").attr("id");
+15、删除属性 removeAttr
+$(".display").removeAttr("class");
+16、追加样式 addClass
+$(".display").addClass("high");
+17、移除样式 removeClass()
+removeClass()不带参数表示移除所有样式
+18、切换样式 toggleClass
+$(".tog").click(function() {
+          $(".greet").toggleClass('har');
+     });
+
+
