@@ -38,7 +38,7 @@ $(function() {
 		var test = $(".myLi").remove();
 		$(".myUl").append(test);
 	});
-	
+
 	$(".camera li").click(function() {
 		$(this).clone(true).appendTo(".camera");
 	});
@@ -51,5 +51,24 @@ $(function() {
 	$(".tog").click(function() {
 		$(".greet").toggleClass('har');
 	});
-	
+	$(".tog").html();
+	$("#email").focus(function() {
+		var eval = $(this).val();
+		if (eval === "请输入邮箱地址") {
+			$(this).val("");
+		}
+	});
+	$("#email").blur(function() {
+		var eval = $(this).val();
+		if (eval === "") {
+			$(this).val("请输入邮箱地址");
+		}
+	});
+	$("#single").val(["2号", "3号"]);
+	$(document).bind("click", function(e) {
+		$(e.target).closest('div').css({
+			color: 'red'
+		});
+	});
+
 });

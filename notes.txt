@@ -113,5 +113,47 @@ removeClass()不带参数表示移除所有样式
 $(".tog").click(function() {
           $(".greet").toggleClass('har');
      });
+19、判断是否含有某个样式：hasClass()
+$(".tog").hasClass("exist");也可以写成
+$(".tog").is(".exist");
+20、设置和获取元素文本：
+html():类似innerHTML,包括元素的所有子元素标签 和 文本
+text():只有文本
+val()：相当于value属性的值
+     $("#email").focus(function() {
+          var eval = $(this).val();
+          if (eval === "请输入邮箱地址") {
+               $(this).val("");
+          }
+     });
+     $("#email").blur(function() {
+          var eval = $(this).val();
+          if (eval === "") {
+               $(this).val("请输入邮箱地址");
+          }
+     });
+设置select、checkbox、radio选项被选中：
+$("#single").val(["2号","3号"]);
+21、children()：子元素 不包括后代元素
+22、next()：取得匹配元素后面紧跟的同辈元素
+23、pre()：取得匹配元素前面紧跟的同辈元素
+24、siblings()：所有同辈元素
+25、closest()：逐级向上级元素匹配并返回最先匹配的祖先元素。
+$(document).bind("click", function(e){
+          $(e.target).closest('div').css({
+          color:'red'
+          });
+     });
+parent()：获得集合中每个匹配元素的父级元素。
+parents()：获得集合中每个匹配元素的祖先元素。
+CSS-DOM操作
+26、css()：设置和获取css值
+如background-color写成backgroundColor 驼峰式
+27、offset()：获取元素在当前视窗的相对偏移
+28、position()：获取元素相对最近的一个position样式属性relative或absolute
+29、scrollTop()：滚动条距顶端的距离
+       scrollLeft()：滚动条距左端的距离
+30、pageX、pageY：鼠标指针的位置
+
 
 
