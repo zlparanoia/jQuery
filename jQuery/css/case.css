@@ -7,16 +7,59 @@ ul {
 	list-style: none;
 }
 
-ul li {
+.v_content_list li {
 	float: left;
+}
+.v_content {
+	position: relative;
+}
+.v_content_list ul {
+	width: 700px;
+	height: 200px;
+	border: 1px solid #000;
+	overflow: hidden;
+	margin-left: 100px;
+	padding-left: 50px;
+}
+/*.v_content_list ul li {
+	position: absolute;
+}*/
+span.current {
+	background-color: red!important;
+}
+.v_caption {
+	height: 40px;
+	width: 750px;
+	margin-left: 100px;
+	border: 1px solid #000;
+	background-color: gray;
+}
+.change_btn, .highlight_tip, .cartoon , em{
+	float: left;
+	line-height: 40px;
+}
+.highlight_tip span {
+	float: left;
+	margin-left: 10px;
+	display: block;
+	margin-top: 20px;
+	width: 5px;
+	height: 5px;
+	border-radius: 50px;
+	background: #fff;
 }
 
 ul li img {
 	width: 150px;
 	height: 150px;
-	margin-right: 50px;
+	margin-right: 20px;
 }
 
 .lin {
 	margin-bottom: 50px;
 }
+
+.move {
+	margin-bottom: 100px;
+}
+

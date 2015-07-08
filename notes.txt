@@ -154,6 +154,57 @@ CSS-DOM操作
 29、scrollTop()：滚动条距顶端的距离
        scrollLeft()：滚动条距左端的距离
 30、pageX、pageY：鼠标指针的位置
+3、jQuery中的事件和动画
+3.1jQuery中的事件
+1、window.onload 与 $(document).ready() 的区别：
+1.执行时机：window.onload必须等待网页所有内容加载完毕才执行。
+                    $(document).ready()网页中所有DOM结构绘制完毕后就执行，可能DOM元素关联的东西并没有加载完
+2.编写个数：window.onload不能同时编写多个，只能一个，下一个会覆盖前一个
+                    $(document).ready()能同时编写多个，按顺序执行
+3.简写：window.onload没有简写
+             $(document).ready()可写为$(function(){}); 或 $().ready(function(){});
+2、事件绑定：bind()
+$().bind("click",function() {});
+绑定多个事件类型：$("#but").bind("mouseover mouseout", function() {
+          $(this).toggleClass("over");
+     });
+3、合成事件：hover()和toggle()
+hover(enter, leave):替代bind("mouseenter")和bind("mouseleave")函数
+4、事件冒泡：分别给body、外层、内层添加点击事件，只点击内层，事件会冒泡到外层和body的事件，触发外层和body事件。
+停止事件冒泡：event.stopPropagation();
+阻止默认行为：event.preventDefault();
+如果想同时对事件对象停止冒泡和默认行为，可以直接 return false;
+5、事件对象的属性
+event.type：获取事件类型
+event.target：获取事件目标
+event.pageX/event.pageY：获取到光标相对于页面的x坐标和y坐标。
+event.which：鼠标单击时按下左键值为1，中键2，右键3。按下键盘按键获取按键对应的数值。
+6、移除事件
+unbind();
+7、one()：与bind()类似 ，只执行一次
+8、模拟事件
+1.常用模拟：页面自动触发事件
+$("#btn").trigger("click"); 或 $("#btn").click();
+3.2jQuery中的动画
+1、fadeIn()和fadeOut()：改变元素的不透明度
+fadeOut()：降低元素的不透明度直到元素消失
+fadeIn()相反。
+2、slideUp()和slideDown()：改变元素的高度
+slideDown()：由上至下延伸显示
+slideUp()：相反
+3、animate()：动画
+     动画回调函数：.animate({
+                    left: "200px",
+                    width: "300px"
+               }, 2000, function() {
+                    $(this).css({
+                         border: "1px solid #000"
+                    });  //最后执行
+               });
+回调函数适用于所有动画元素，在效果完成后执行。
+4、判断元素是否处于动画状态：
+没有：if(! $().is(:animated)){}
+延迟动画：delay(1000);
 
 
 

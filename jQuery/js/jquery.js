@@ -71,4 +71,85 @@ $(function() {
 		});
 	});
 
+	$(".header").bind("click", function() {
+		$(this).next().toggle();
+	});
+
+	$("span").bind("click", function(event) {
+		var text = $("#msg").html() + "<p>内层div被单击</p>";
+		$("#msg").html(text);
+		event.stopPropagation();
+	});
+	$("#content").bind("click", function(event) {
+		var text = $("#msg").html() + "<p>外层div被单击</p>";
+		$("#msg").html(text);
+		event.stopPropagation();
+	});
+
+	$("#sub").bind("click", function(event) {
+		if ($("#user").val() === "") {
+			$("#tip").html("用户名不能为空");
+			return false;
+		}
+	});
+
+	$("#btn").bind("click", myFun1 = function() {
+		$("#word").append("<p>绑定函数1</p>");
+	}).one("click", myFun2 = function() {
+		$("#word").append("<p>绑定函数2</p>");
+	}).bind("click", myFun3 = function() {
+		$("#word").append("<p>绑定函数3</p>");
+	});
+
+	$("#but").click(function() {
+		$("#btn").unbind('click', myFun2);
+	});
+
+	$("#btn").click();
+	$("#but").bind("mouseover mouseout", function() {
+		$(this).toggleClass("over");
+	});
+
+	$("#but").bind("click", function() {
+		$(".opa").slideToggle("slow", function() {
+			$(this).css({
+				color: "red"
+			});
+		});
+	});
+	$("#btn").bind("click", function() {
+		$(".panel").animate({
+				left: "100px",
+				height: "150px"
+			}, 1000)
+			.animate({
+				left: "200px",
+				width: "300px"
+			}, 2000, function() {
+				$(this).css({
+					border: "1px solid #000"
+				});
+			});
+	});
+	$(".panel").hover(function() {
+		$(this).stop(true)
+			.animate({
+				height: "200px",
+				width: "300px"
+			}, 2000)
+			.animate({
+				height: "400px",
+				width: "200px"
+			});
+	}, function() {
+		$(this).stop(true)
+			   .animate({
+			   	height: "100px",
+			   	width: "100px"
+			   }, 2000)
+			   .animate({
+			   	height: "200px",
+			   	width: "50px"
+			   });
+	});
 });
